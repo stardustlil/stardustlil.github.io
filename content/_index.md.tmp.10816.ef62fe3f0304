@@ -97,15 +97,15 @@ sections:
 
         <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
         <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">YANGTZE UNIVERSITY 2026 OUTSTANDING GRADUATION THESIS</h4>
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">University-Level Outstanding Graduation Thesis</h4>
         <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Yangtze University · Jun 2026</p>
         </div>
         </div>
 
         <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
         <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">89/100 — PAT Advanced</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">PAT Testing Center · Sep 2025</p>
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">Top 15% — PAT Advanced</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Programming Ability Test · Sep 2025</p>
         </div>
         </div>
 

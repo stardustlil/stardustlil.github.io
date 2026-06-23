@@ -93,10 +93,10 @@ languages:
     label: CET-6
 
 awards:
-  - title: 全国一等奖（排名 219/2520）—— 码蹄杯程序设计竞赛
-    awarder: 码蹄杯
+  - title: 全国一等奖（排名 219/2520）—— 码蹄杯程序设计大赛
+    awarder: 码蹄杯大赛组委会
     date: "2025-08-01"
-  - title: 全国二等奖 —— RAICOM 机器人竞赛 (CAIP 赛道)
+  - title: 全国二等奖 —— RAICOM 机器人开发者大赛 (CAIP 赛道)
     awarder: RAICOM 组委会
     date: "2025-08-01"
   - title: 全国二等奖 —— 蓝桥杯程序设计竞赛 (C/C++ 组)
@@ -105,9 +105,9 @@ awards:
   - title: 省级三等奖 —— 团体程序设计天梯赛 (GPLT)
     awarder: 中国高校计算机大赛组委会
     date: "2025-05-01"
-  - title: 校级优秀毕业论文
+  - title: 长江大学2026届优秀毕业论文
     awarder: 长江大学
     date: "2026-06-01"
-  - title: 前 15% —— 计算机程序设计能力考试 (PAT 甲级)
-    awarder: 浙江大学计算机科学与技术学院
+  - title: 89/100 —— 计算机程序设计能力考试 (PAT 甲级)
+    awarder: 攀拓计算机能力测评考试中心
     date: "2025-09-01"

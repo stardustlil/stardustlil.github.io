@@ -389,7 +389,7 @@
             {{ $target := "" }}
             {{ if not $scheme }}
               {{ if not (hasPrefix $button_link "#") }}
-                {{ $button_link = $button_link | relLangURL }}
+                {{ $button_link = $button_link | relURL }}
               {{ end }}
               {{ if eq (path.Ext $button_link) ".pdf" }}{{ $target = "target=\"_blank\" rel=\"noopener\"" }}{{ end }}
             {{ else if in (slice "http" "https") $scheme }}

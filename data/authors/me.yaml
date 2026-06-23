@@ -14,8 +14,11 @@ status:
 role: Aspiring Researcher
 bio: |
   Aspiring researcher with a B.Eng. in Software Engineering from Yangtze University.
-  Passionate about deep learning, reinforcement learning, and combinatorial optimization.
-  Currently seeking RA positions.
+  Passionate about neural combinatorial optimization, deep learning, and reinforcement learning.
+  My undergraduate thesis, GeoRouteNet, explores geometry-enhanced neural solvers for the Euclidean TSP.
+  Currently seeking Research Assistant (RA) positions in **combinatorial optimization**, **deep learning**, and **reinforcement learning**.
+
+  Feel free to reach out.
 
 affiliations:
   - name: Yangtze University
@@ -99,10 +102,10 @@ languages:
 
 awards:
   - title: National First Prize (Rank 219/2520) — Mati Cup
-    awarder: Mati Cup Programming Contest
+    awarder: Mati Cup Organizing Committee
     date: "2025-08-01"
-  - title: National Second Prize — RAICOM CAIP Track
-    awarder: RAICOM Robot Competition
+  - title: National Second Prize — RAICOM Robot Developer Competition (CAIP Track)
+    awarder: RAICOM Organizing Committee
     date: "2025-08-01"
   - title: National Second Prize — Lanqiao Cup (C/C++)
     awarder: Lanqiao Cup Programming Contest
@@ -110,9 +113,9 @@ awards:
   - title: Provincial Third Prize — GPLT
     awarder: Group Programming Ladder Tournament
     date: "2025-05-01"
-  - title: University-Level Outstanding Graduation Thesis
+  - title: YANGTZE UNIVERSITY 2026 OUTSTANDING GRADUATION THESIS
     awarder: Yangtze University
     date: "2026-06-01"
-  - title: Top 15% — PAT Advanced
-    awarder: Programming Ability Test
+  - title: 89/100 — PAT Advanced
+    awarder: PAT Testing Center
     date: "2025-09-01"
