@@ -6,16 +6,18 @@
 # Website name (set in params.yaml under hugoblox.branding.name)
 title: ''
 # Website URL
-baseURL: 'https://example.com/'
+baseURL: 'https://stardustlil.github.io/'
 
 ############################
 ## LANGUAGE
 ############################
 
 defaultContentLanguage: en
-hasCJKLanguage: false
+hasCJKLanguage: true
 defaultContentLanguageInSubdir: false
 removePathAccents: true
+ignoreLogs:
+  - 'sections-none-/zh/'
 
 ############################
 ## PAGE OPTIONS

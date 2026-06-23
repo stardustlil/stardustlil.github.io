@@ -1,0 +1,104 @@
+sections:
+  - block: resume-biography-3
+    content:
+      username: me
+      text: ''
+      button:
+        text: 下载简历
+        url: uploads/resume.pdf
+      headings:
+        about: ''
+        education: ''
+        interests: ''
+    design:
+      background:
+        gradient_mesh:
+          enable: true
+      name:
+        size: md
+      avatar:
+        size: medium
+        shape: circle
+  - block: markdown
+    content:
+      title: '📚 研究方向'
+      subtitle: ''
+      text: |-
+        我对神经组合优化、深度学习和强化学习充满热情。我的本科毕业论文 GeoRouteNet 探索了针对欧几里得旅行商问题的几何增强神经求解器。
+
+        目前我正在寻求研究助理（RA）职位，希望能够在组合优化与深度学习领域做出贡献。
+
+        欢迎联系交流 😃
+    design:
+      columns: '1'
+  - block: collection
+    id: papers
+    content:
+      title: 精选论文
+      filters:
+        folders:
+          - publications
+        featured_only: true
+    design:
+      view: article-grid
+      columns: 2
+  - block: collection
+    content:
+      title: 最新论文
+      text: ''
+      filters:
+        folders:
+          - publications
+        exclude_featured: false
+    design:
+      view: citation
+  - block: collection
+    id: talks
+    content:
+      title: 近期演讲
+      filters:
+        folders:
+          - events
+    design:
+      view: card
+  - block: collection
+    id: news
+    content:
+      title: 最新动态
+      subtitle: ''
+      text: ''
+      page_type: blog
+      count: 10
+      filters:
+        author: ''
+        category: ''
+        tag: ''
+        exclude_featured: false
+        exclude_future: false
+        exclude_past: false
+        publication_type: ''
+      offset: 0
+      order: desc
+    design:
+      view: card
+      spacing:
+        padding: [0, 0, 0, 0]
+  - block: cta-card
+    demo: true
+    content:
+      title: 👉 像这样构建你自己的学术网站
+      text: |-
+        本站由 HugoBlox Kit 生成——免费、基于 Hugo 的开源网站构建器，深受 250,000+ 学术用户信赖。
+
+        <a class="github-button" href="https://github.com/HugoBlox/kit" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star HugoBlox/kit on GitHub">Star</a>
+
+        无需编码即可轻松构建任何内容！
+
+        从落地页、第二大脑、课程到学术简历、会议和技术博客。
+      button:
+        text: 开始使用
+        url: https://hugoblox.com/templates/
+    design:
+      card:
+        css_class: 'bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600 text-white shadow-2xl'
+        css_style: ''

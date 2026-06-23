@@ -5,18 +5,9 @@
 # Default language
 en:
   locale: en-us
-  # Uncomment for multi-lingual sites, and move English content into `en` sub-folder.
-  #contentDir: content/en
 
-# Uncomment the lines below to configure your website in a second language.
-#zh:
-#  locale: zh-Hans
-#  contentDir: content/zh
-#  title: Chinese website title...
-#  params:
-#    description: Site description in Chinese...
-#  menu:
-#    main:
-#      - name: 传
-#        url: '#about'
-#        weight: 1
+zh:
+  locale: zh-Hans
+  title: 李想
+  params:
+    description: 李想的个人学术主页——研究方向包括神经组合优化、深度学习与强化学习。
