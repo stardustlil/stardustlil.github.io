@@ -1,0 +1,24 @@
+/* 教育/工作经历只有一条时，卡片撑满整行 */
+#bio .grid > *:only-child {
+  grid-column: 1 / -1;
+}
+
+/* 中英文论文卡片统一宽度 */
+#papers .max-w-prose {
+  max-width: 34rem !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* 只有一篇论文时卡片撑满整行 */
+#papers .grid > *:only-child {
+  grid-column: 1 / -1;
+}
+
+/* 统一页面背景，压缩 section 间距 */
+:root {
+  --hb-spacing-section: 3rem;
+}
+.page-body {
+  background: linear-gradient(135deg, color-mix(in srgb, var(--hb-color-primary) 2%, transparent) 0%, transparent 40%, transparent 60%, color-mix(in srgb, var(--hb-color-secondary) 2%, transparent) 100%);
+}

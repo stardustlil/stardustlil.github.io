@@ -2,6 +2,7 @@
 title: 'Experience'
 date: 2023-10-24
 type: landing
+translationKey: experience
 
 design:
   spacing: '5rem'

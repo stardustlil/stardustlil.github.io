@@ -1,5 +1,6 @@
 sections:
   - block: resume-biography-3
+    id: bio
     content:
       username: me
       text: ''
@@ -7,9 +8,9 @@ sections:
         text: 下载简历
         url: uploads/resume.pdf
       headings:
-        about: ''
+        about: '简介'
         education: ''
-        interests: ''
+        interests: '研究兴趣'
     design:
       background:
         gradient_mesh:
@@ -21,84 +22,157 @@ sections:
         shape: circle
   - block: markdown
     content:
-      title: '📚 研究方向'
+      title: '🔬 研究方向'
       subtitle: ''
       text: |-
         我对神经组合优化、深度学习和强化学习充满热情。我的本科毕业论文 GeoRouteNet 探索了针对欧几里得旅行商问题的几何增强神经求解器。
 
         目前我正在寻求研究助理（RA）职位，希望能够在组合优化与深度学习领域做出贡献。
 
-        欢迎联系交流 😃
+        欢迎联系交流。
     design:
       columns: '1'
-  - block: collection
+  # NOTE: 使用 markdown 卡片代替 collection block。
+  # Hugo v0.163.3 的多语言 bug 导致 collection block 在中文页面上无法查询到中文出版物。
+  # 英文页面使用 collection block 正常，中文页面用下面的 HTML 卡片。
+  - block: markdown
     id: papers
     content:
-      title: 精选论文
-      filters:
-        folders:
-          - publications
-        featured_only: true
-    design:
-      view: article-grid
-      columns: 2
-  - block: collection
-    content:
-      title: 最新论文
-      text: ''
-      filters:
-        folders:
-          - publications
-        exclude_featured: false
-    design:
-      view: citation
-  - block: collection
-    id: talks
-    content:
-      title: 近期演讲
-      filters:
-        folders:
-          - events
-    design:
-      view: card
-  - block: collection
-    id: news
-    content:
-      title: 最新动态
+      title: '📄 论文发表'
       subtitle: ''
-      text: ''
-      page_type: blog
-      count: 10
-      filters:
-        author: ''
-        category: ''
-        tag: ''
-        exclude_featured: false
-        exclude_future: false
-        exclude_past: false
-        publication_type: ''
-      offset: 0
-      order: desc
-    design:
-      view: card
-      spacing:
-        padding: [0, 0, 0, 0]
-  - block: cta-card
-    demo: true
-    content:
-      title: 👉 像这样构建你自己的学术网站
       text: |-
-        本站由 HugoBlox Kit 生成——免费、基于 Hugo 的开源网站构建器，深受 250,000+ 学术用户信赖。
-
-        <a class="github-button" href="https://github.com/HugoBlox/kit" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star HugoBlox/kit on GitHub">Star</a>
-
-        无需编码即可轻松构建任何内容！
-
-        从落地页、第二大脑、课程到学术简历、会议和技术博客。
-      button:
-        text: 开始使用
-        url: https://hugoblox.com/templates/
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2" style="max-width:34rem;margin:0 auto">
+        <div class="relative overflow-hidden aspect-[16/9] bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
+        <a href="/zh/publications/georoutenet/">
+        <div class="w-full h-full bg-gradient-to-br from-primary-600/40 via-secondary-600/30 to-primary-800/50 flex items-center justify-center transition-all duration-300 group-hover:from-primary-500/50 group-hover:via-secondary-500/40 group-hover:to-primary-700/60">
+        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <svg class="w-8 h-8 text-white/40" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
+        </div>
+        </div>
+        </a>
+        </div>
+        <div class="p-8 space-y-4">
+        <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-800 dark:bg-primary-900/40 dark:text-primary-300">预印本</span>
+        </div>
+        <h3 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight">
+        <a href="/zh/publications/georoutenet/" class="hover:underline">GeoRouteNet：面向欧几里得 TSP 的几何增强神经求解器</a>
+        </h3>
+        <p class="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed">
+        一种面向欧几里得 TSP 的几何感知非自回归神经求解器，在 TSP50/TSP100 上实现了 0.32%/1.26% 的最优性差距。
+        </p>
+        <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800">
+        <div class="flex items-center gap-3 text-xs text-zinc-500 dark:text-zinc-500 flex-wrap mb-3">
+        <div class="flex items-center gap-2">
+        <img alt="avatar" class="rounded-full object-cover" src="/media/authors/me_hu_89af3f5c76cf5a2f.webp" width="24" height="24" loading="lazy" />
+        <span class="text-sm">李响</span>
+        </div>
+        <span>•</span>
+        <time datetime="2026-06-01">2026年6月1日</time>
+        </div>
+        <div class="flex flex-wrap gap-2">
+        <a href="https://arxiv.org/abs/2606.22776" target="_blank" rel="noopener" class="inline-flex items-center gap-1 rounded-full bg-primary-50 dark:bg-primary-900/20 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300 no-underline hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors">arXiv: 2606.22776</a>
+        <a href="https://github.com/stardustlil/GeoRouteNet" target="_blank" rel="noopener" class="inline-flex items-center gap-1 rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 no-underline hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">代码</a>
+        </div>
+        </div>
+        </div>
+        </div>
     design:
-      card:
-        css_class: 'bg-gradient-to-br from-primary-500 via-primary-600 to-secondary-600 text-white shadow-2xl'
-        css_style: ''
+      columns: '1'
+  - block: markdown
+    id: campus
+    content:
+      title: '🎓 校园经历'
+      subtitle: ''
+      text: |-
+        加入长江大学 **ICPC（国际大学生程序设计竞赛）集训队**，系统性地进行了算法与数据结构的高强度训练。训练内容涵盖动态规划、图论、计算几何、数论、字符串算法等核心竞赛领域。通过大量刷题训练，培养了扎实的算法思维和高效的问题解决能力。
+    design:
+      columns: '1'
+  - block: markdown
+    id: awards
+    content:
+      title: 🏆 获奖
+      subtitle: ''
+      text: |-
+        <div class="grid gap-4 md:grid-cols-2" style="max-width:42rem;margin:0 auto">
+
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-amber-400">
+        <div class="p-5">
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">全国一等奖（排名 219/2520）—— 码蹄杯程序设计竞赛</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">码蹄杯 · 2025年8月</p>
+        </div>
+        </div>
+
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-slate-400">
+        <div class="p-5">
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">全国二等奖 —— RAICOM 机器人竞赛 (CAIP 赛道)</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">RAICOM 组委会 · 2025年8月</p>
+        </div>
+        </div>
+
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-slate-400">
+        <div class="p-5">
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">全国二等奖 —— 蓝桥杯程序设计竞赛 (C/C++ 组)</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">工业和信息化部人才交流中心 · 2025年6月</p>
+        </div>
+        </div>
+
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
+        <div class="p-5">
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">省级三等奖 —— 团体程序设计天梯赛 (GPLT)</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">中国高校计算机大赛组委会 · 2025年5月</p>
+        </div>
+        </div>
+
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
+        <div class="p-5">
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">校级优秀毕业论文</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">长江大学 · 2026年6月</p>
+        </div>
+        </div>
+
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
+        <div class="p-5">
+        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">前 15% —— 计算机程序设计能力考试 (PAT 甲级)</h4>
+        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">浙江大学计算机科学与技术学院 · 2025年9月</p>
+        </div>
+        </div>
+
+        </div>
+    design:
+      columns: '1'
+  - block: markdown
+    id: projects
+    content:
+      title: '💻 项目经历'
+      subtitle: ''
+      text: |-
+        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2" style="max-width:34rem;margin:0 auto">
+        <div class="relative overflow-hidden aspect-[16/9] bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
+        <a href="https://github.com/stardustlil/poetryGPT" target="_blank" rel="noopener">
+        <div class="w-full h-full bg-gradient-to-br from-emerald-600/40 via-teal-600/30 to-cyan-800/50 flex items-center justify-center transition-all duration-300 group-hover:from-emerald-500/50 group-hover:via-teal-500/40 group-hover:to-cyan-700/60">
+        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <svg class="w-8 h-8 text-white/40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
+        </div>
+        </div>
+        </a>
+        </div>
+        <div class="p-8 space-y-4">
+        <div class="flex items-center gap-2">
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">独立项目</span>
+        </div>
+        <h3 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200 leading-tight">
+        <a href="https://github.com/stardustlil/poetryGPT" target="_blank" rel="noopener" class="hover:underline">poetryGPT：面向中文古诗生成的 Decoder-only Transformer</a>
+        </h3>
+        <p class="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed">
+        基于 PyTorch 构建了 7 层 Decoder-only Transformer（约 14M 参数）用于中文古诗生成。开发了覆盖 220 万中文字符的字符级预处理流水线，并实现了 temperature、top-k、nucleus 采样策略用于自回归解码。
+        </p>
+        <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800">
+        <div class="flex flex-wrap gap-2">
+        <a href="https://github.com/stardustlil/poetryGPT" target="_blank" rel="noopener" class="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300 no-underline hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors">GitHub</a>
+        </div>
+        </div>
+        </div>
+        </div>
+    design:
+      columns: '1'

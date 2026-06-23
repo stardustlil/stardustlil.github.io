@@ -1,0 +1,4 @@
+{{ $columns := .config.columns | default 2 }}
+{{ $len := .config.len | default 2 }}
+<div class="mx-auto {{ if eq $len 1 }}max-w-[34rem]{{else}}max-w-screen-lg px-8{{end}}">
+  <div class="grid gap-10 md:grid-cols-{{$columns}} lg:gap-10">

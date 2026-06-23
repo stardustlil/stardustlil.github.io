@@ -5,6 +5,7 @@ authors:
 date: "2026-06-01T00:00:00Z"
 publishDate: "2026-06-01T00:00:00Z"
 
+translationKey: georoutenet
 publication_types: ["preprint"]
 
 peer_reviewed: false
@@ -23,12 +24,7 @@ summary: |
   A geometry-aware non-autoregressive neural solver for Euclidean TSP, achieving
   0.32%/1.26% optimality gap on TSP50/TSP100.
 
-tags:
-- Neural Combinatorial Optimization
-- Traveling Salesman Problem
-- Graph Neural Networks
-- Reinforcement Learning
-
+share: false
 featured: true
 
 hugoblox:
@@ -36,12 +32,6 @@ hugoblox:
     arxiv: "2606.22776"
 
 links:
-- type: preprint
-  provider: arxiv
-  id: "2606.22776"
 - type: code
   url: https://github.com/stardustlil/GeoRouteNet
-
-projects: []
-slides: ""
 ---

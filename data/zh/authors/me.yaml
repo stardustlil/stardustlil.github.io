@@ -2,8 +2,8 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: 李想
-  given: 想
+  display: 李响 (Li Xiang)
+  given: 响
   family: 李
   alternate: 'Li Xiang'
   pronunciation: ''
@@ -11,54 +11,53 @@ name:
 postnominals: []
 status:
   icon: "☕️"
-role: 准研究员
+role: Aspiring Researcher
 bio: |
-  软件工程本科毕业，对深度学习、强化学习和组合优化充满热情。
-  目前正在寻求研究助理（RA）职位。
+  软件工程本科毕业，研究兴趣聚焦于**神经组合优化 (NCO)**、**深度强化学习 (DRL)** 与**图神经网络 (GNNs)**。目前正在积极寻求深度学习或强化学习方向的**研究助理 (RA)** 职位。
 
 affiliations:
-  - name: 长江大学
+  - name: 长江大学 (Yangtze University)
     url: https://www.yangtzeu.edu.cn/
 
 links:
   - icon: at-symbol
     url: mailto:lixiang.stu@yangtzeu.edu.cn
-    label: 电子邮件
+    label: Email
   - icon: brands/github
     url: https://github.com/stardustlil
+    label: GitHub
 
 interests:
-  - 神经组合优化
-  - 深度学习
-  - 强化学习
-  - 图神经网络
+  - 神经组合优化 (Neural Combinatorial Optimization)
+  - 深度强化学习 (Deep Reinforcement Learning)
+  - 图神经网络 (Graph Neural Networks)
 
 education:
-  - degree: 软件工程 工学学士
+  - degree: 软件工程 工学学士 (B.Eng. in Software Engineering)
     institution: 长江大学
     location: 中国荆州
     start: 2022-09-01
     end: 2026-06-30
     summary: |
-      GPA: 3.11 / 4.0。相关课程：机器学习、算法设计与分析、线性代数、概率论与数理统计、离散数学。
+      相关课程：离散数学、概率论与数理统计、机器学习、算法设计与分析、线性代数。
     button:
-      text: 下载简历
+      text: 下载简历 / CV
       url: uploads/resume.pdf
       icon: hero/arrow-down-tray
 
 experience:
-  - role: 本科科研助理
+  - role: 本科科研助理 (Undergraduate Research Assistant)
     org: 长江大学
     start: 2025-11-01
     end: 2026-06-30
     summary: |
-      毕业论文：GeoRouteNet —— 面向欧几里得 TSP 的几何增强神经求解器。
-      提出了一种将几何归纳偏置注入 GNN 节点、边和注意力表示的非自回归神经求解器。
-      设计了一种多候选自比较强化学习策略。在 TSP50/TSP100（Beam-1000）上
-      实现了 0.32%/1.26% 的最优性差距。获评校级优秀毕业论文。预印本已发布于 arXiv。
+      **毕业论文：GeoRouteNet —— 面向欧几里得 TSP 的几何增强神经求解器**
+      * 提出了一种将几何归纳偏置注入 GNN 节点、边和注意力表示的非自回归神经求解器。
+      * 设计了一种多候选自比较强化学习策略。在 TSP50/TSP100（Beam-1000）上实现了 0.32% / 1.26% 的最优性差距，显著超越 baseline。
+      * 获评**校级优秀毕业论文**。预印本已发布于 [arXiv:2606.22776](https://arxiv.org/abs/2606.22776)。
 
 skills:
-  - name: 编程
+  - name: 编程语言
     items:
       - label: Python
         level: 4
@@ -68,21 +67,21 @@ skills:
         level: 3
       - label: SQL
         level: 3
-  - name: 研究与机器学习
+  - name: 科研与机器学习
     items:
       - label: PyTorch
         level: 4
-      - label: 深度学习
+      - label: 图神经网络 (GNNs)
         level: 4
-      - label: 强化学习
+      - label: 深度强化学习 (DRL)
         level: 3
-  - name: 算法
+  - name: 算法与竞赛
     items:
-      - label: 数据结构
+      - label: 数据结构与算法
         level: 4
-      - label: 动态规划
+      - label: 动态规划 (DP)
         level: 4
-      - label: 图算法
+      - label: 图论与组合数学
         level: 4
 
 languages:
@@ -94,21 +93,21 @@ languages:
     label: CET-6
 
 awards:
+  - title: 全国一等奖（排名 219/2520）—— 码蹄杯程序设计竞赛
+    awarder: 码蹄杯
+    date: "2025-08-01"
+  - title: 全国二等奖 —— RAICOM 机器人竞赛 (CAIP 赛道)
+    awarder: RAICOM 组委会
+    date: "2025-08-01"
+  - title: 全国二等奖 —— 蓝桥杯程序设计竞赛 (C/C++ 组)
+    awarder: 工业和信息化部人才交流中心
+    date: "2025-06-01"
+  - title: 省级三等奖 —— 团体程序设计天梯赛 (GPLT)
+    awarder: 中国高校计算机大赛组委会
+    date: "2025-05-01"
   - title: 校级优秀毕业论文
     awarder: 长江大学
     date: "2026-06-01"
-  - title: 全国一等奖（排名 219/2520）—— 码蹄杯
-    awarder: 码蹄杯程序设计竞赛
-    date: "2025-08-01"
-  - title: 全国二等奖 —— RAICOM CAIP 赛道
-    awarder: RAICOM 机器人竞赛
-    date: "2025-08-01"
-  - title: 全国二等奖 —— 蓝桥杯（C/C++ 组）
-    awarder: 蓝桥杯程序设计竞赛
-    date: "2025-06-01"
-  - title: 省级三等奖 —— GPLT
-    awarder: 团体程序设计天梯赛
-    date: "2025-05-01"
-  - title: 前 15% —— PAT 甲级
-    awarder: 计算机程序设计能力考试
+  - title: 前 15% —— 计算机程序设计能力考试 (PAT 甲级)
+    awarder: 浙江大学计算机科学与技术学院
     date: "2025-09-01"

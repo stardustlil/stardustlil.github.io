@@ -1,6 +1,7 @@
 ---
 title: Publications
 cms_exclude: true
+translationKey: publications
 
 # View.
 view: citation
