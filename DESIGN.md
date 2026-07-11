@@ -31,6 +31,7 @@ The page prioritizes identity, selected research, and measurable results. Decora
   --cv-accent-hover: #105346;
   --cv-accent-soft: #dcece6;
   --cv-rust: #a24c32;
+  --cv-on-accent: #ffffff;
   --cv-success: #2f6b4f;
   --cv-warning: #91601c;
   --cv-error: #a33a31;
@@ -54,6 +55,7 @@ The page prioritizes identity, selected research, and measurable results. Decora
   --cv-accent-hover: #91d4c2;
   --cv-accent-soft: #19372f;
   --cv-rust: #d98b70;
+  --cv-on-accent: #101613;
   --cv-bg-rgb: 16, 22, 19;
   --cv-surface-rgb: 21, 29, 25;
   --cv-text-rgb: 242, 245, 241;
@@ -274,7 +276,7 @@ html { scroll-behavior: smooth; }
 | Desktop | `>= 1024px` | two-column hero, asymmetric project grid, label/content section grid |
 | Tablet | `768-1023px` | compact hero, equal project columns, reduced section gap |
 | Mobile | `< 768px` | single column, portrait beside identity metadata where space permits, stacked actions and projects |
-| Small Mobile | `< 420px` | `20px` page padding, 44px controls, 40px hero name, no horizontal metadata rows |
+| Small Mobile | `< 420px` | compact portrait, 44px controls, 40px hero name, no horizontal metadata rows; below 360px the hero uses a localized short summary and icon-only language control |
 
 **Touch Targets:** minimum `44 x 44px`
 **Collapsing Strategy:** the existing HugoBlox menu collapses at mobile width; project media stays above project text; metric rows wrap without changing card height.

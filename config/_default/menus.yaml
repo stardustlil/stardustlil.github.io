@@ -5,21 +5,21 @@ main:
     url: /
     weight: 10
     language: en
-  - name: Papers
-    url: /#papers
+  - name: Work
+    url: /#work
     weight: 20
     language: en
-  - name: Campus Experience
-    url: /#campus
+  - name: Research
+    url: /#research
     weight: 30
     language: en
-  - name: Projects
-    url: /#projects
+  - name: Experience
+    url: /#experience
     weight: 40
     language: en
-  - name: Awards
+  - name: Honors
     url: /#awards
-    weight: 40
+    weight: 50
     language: en
 
 # Chinese menu
@@ -28,19 +28,19 @@ zh_main:
     url: /
     weight: 10
     language: zh
-  - name: 论文
-    url: /#papers
+  - name: 成果
+    url: /#work
     weight: 20
     language: zh
-  - name: 校园经历
-    url: /#campus
+  - name: 研究
+    url: /#research
     weight: 30
     language: zh
-  - name: 项目
-    url: /#projects
+  - name: 经历
+    url: /#experience
     weight: 40
     language: zh
-  - name: 获奖
+  - name: 荣誉
     url: /#awards
-    weight: 40
+    weight: 50
     language: zh

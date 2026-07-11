@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">GeoRouteNet route visualization</title>
+  <desc id="desc">A geometric traveling salesman route with model result annotations.</desc>
+  <rect width="960" height="620" fill="#f5f7f3"/>
+  <g fill="none" stroke="#ccd4ce" stroke-width="1">
+    <path d="M80 120H880M80 220H880M80 320H880M80 420H880M80 520H880"/>
+    <path d="M160 70V550M320 70V550M480 70V550M640 70V550M800 70V550"/>
+  </g>
+  <path d="M125 430 235 160 420 115 710 145 840 300 745 505 520 470 355 535 175 520 125 430Z"
+        fill="none" stroke="#176b5b" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M235 160 355 535M420 115 520 470M710 145 745 505"
+        fill="none" stroke="#a24c32" stroke-width="3" stroke-dasharray="10 12" opacity=".7"/>
+  <g fill="#ffffff" stroke="#17221e" stroke-width="4">
+    <circle cx="125" cy="430" r="12"/><circle cx="235" cy="160" r="12"/>
+    <circle cx="420" cy="115" r="12"/><circle cx="710" cy="145" r="12"/>
+    <circle cx="840" cy="300" r="12"/><circle cx="745" cy="505" r="12"/>
+    <circle cx="520" cy="470" r="12"/><circle cx="355" cy="535" r="12"/>
+    <circle cx="175" cy="520" r="12"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" fill="#17221e">
+    <text x="74" y="62" font-size="20" font-weight="700" letter-spacing="2">GEOROUTENET / EUCLIDEAN TSP</text>
+    <text x="690" y="575" font-size="16" fill="#4b5a54">GEOMETRY-AWARE DECODING</text>
+    <text x="74" y="575" font-size="38" font-weight="700" fill="#176b5b">0.32%</text>
+    <text x="205" y="575" font-size="16" fill="#4b5a54">TSP50 OPTIMALITY GAP</text>
+  </g>
+</svg>

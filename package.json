@@ -4,6 +4,7 @@
   "scripts": {
     "dev": "hugo server --disableFastRender",
     "build": "hugo --minify && npm run pagefind",
+    "test": "hugo --minify && node --test tests/site.test.mjs",
     "lint": "echo 'TODO: add lint script'",
     "pagefind": "pagefind --site public"
   },

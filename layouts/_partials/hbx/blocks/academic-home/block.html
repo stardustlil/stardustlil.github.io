@@ -1,0 +1,193 @@
+{{/* Shared bilingual academic homepage. Localized copy is supplied by data/pages/home*.yaml. */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content | default dict }}
+{{ $profile := partial "functions/get_author_profile" ($content.username | default "me") }}
+{{ $labels := $content.labels | default dict }}
+{{ $actions := $content.actions | default dict }}
+{{ $publication := $content.publication | default dict }}
+{{ $project := $content.project | default dict }}
+{{ $campus := $content.campus | default dict }}
+{{ $dateFormat := $content.date_format | default "Jan 2006" }}
+{{ $routeVisual := resources.Get "media/projects/georoutenet-route.svg" }}
+{{ $poetryVisual := resources.Get "media/projects/poetrygpt-sample.svg" }}
+
+<main class="cv-home cv-page">
+  <section id="about" class="cv-section cv-hero" aria-labelledby="cv-name">
+    <div class="cv-container cv-hero__grid">
+      <div class="cv-portrait-column">
+        {{ with $profile.avatar }}
+          {{ $portrait := .Fill "600x720 Center" }}
+          <img class="cv-portrait" src="{{ $portrait.RelPermalink }}" alt="{{ $profile.title }}" width="300" height="360">
+        {{ end }}
+        <div class="cv-profile-meta">
+          {{ range $profile.affiliations }}
+            <a class="cv-link cv-affiliation" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a>
+          {{ end }}
+          <span>{{ $content.location }}</span>
+        </div>
+      </div>
+
+      <div class="cv-hero__content">
+        <p class="cv-eyebrow">{{ $content.eyebrow }}</p>
+        <h1 id="cv-name" class="cv-hero__name">{{ $profile.title }}</h1>
+        <p class="cv-hero__role cv-hero__role--full">{{ $content.role }}</p>
+        <p class="cv-hero__role cv-hero__role--short">{{ $content.role_short }}</p>
+        <div class="cv-hero__intro cv-hero__intro--full">{{ $content.intro | $page.RenderString }}</div>
+        <div class="cv-hero__intro cv-hero__intro--short">{{ $content.intro_short | $page.RenderString }}</div>
+        <p class="cv-availability cv-availability--full"><span aria-hidden="true"></span>{{ $content.availability }}</p>
+        <p class="cv-availability cv-availability--short"><span aria-hidden="true"></span>{{ $content.availability_short }}</p>
+
+        <div class="cv-actions" role="group" aria-label="{{ $labels.primary_actions }}">
+          <a class="cv-button" href="{{ $actions.cv_url | relURL }}" target="_blank" rel="noopener" aria-label="{{ $actions.cv_label }}">
+            {{ partial "functions/get_icon" (dict "name" "document-arrow-down" "attributes" "aria-hidden='true'") }}
+            <span class="cv-action-label cv-action-label--full">{{ $actions.cv_label }}</span>
+            <span class="cv-action-label cv-action-label--short">{{ $actions.cv_short }}</span>
+          </a>
+          <a class="cv-button cv-button--secondary" href="{{ $actions.email_url }}" aria-label="{{ $actions.email_label }}">
+            {{ partial "functions/get_icon" (dict "name" "at-symbol" "attributes" "aria-hidden='true'") }}
+            <span class="cv-action-label cv-action-label--full">{{ $actions.email_label }}</span>
+            <span class="cv-action-label cv-action-label--short">{{ $actions.email_short }}</span>
+          </a>
+          <a class="cv-icon-button" href="{{ $actions.github_url }}" target="_blank" rel="noopener" title="{{ $actions.github_label }}" aria-label="{{ $actions.github_label }}">
+            {{ partial "functions/get_icon" (dict "name" "brands/github" "attributes" "aria-hidden='true'") }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="cv-section cv-work" aria-labelledby="work-title">
+    <div class="cv-container">
+      <header class="cv-section-header">
+        <p class="cv-eyebrow">{{ $labels.selected_work_kicker }}</p>
+        <h2 id="work-title" class="cv-section-title">{{ $labels.selected_work }}</h2>
+        <p>{{ $labels.selected_work_intro }}</p>
+      </header>
+
+      <div class="cv-project-grid">
+        <article class="cv-project cv-project--featured">
+          <a class="cv-project__media" href="{{ $publication.page_url | relLangURL }}" aria-label="{{ $publication.title }}">
+            {{ with $routeVisual }}<img src="{{ .RelPermalink }}" alt="{{ $publication.image_alt }}" width="960" height="620" loading="lazy">{{ end }}
+          </a>
+          <div class="cv-project__body">
+            <p class="cv-status">{{ $publication.type }}</p>
+            <h3><a class="cv-title-link" href="{{ $publication.page_url | relLangURL }}">{{ $publication.title }}</a></h3>
+            <p>{{ $publication.summary }}</p>
+            <dl class="cv-results">
+              {{ range $publication.results }}
+                <div><dt>{{ .label }}</dt><dd>{{ .value }}</dd></div>
+              {{ end }}
+            </dl>
+            <div class="cv-project__links">
+              <a class="cv-link" href="{{ $publication.paper_url }}" target="_blank" rel="noopener">{{ $labels.paper }}</a>
+              <a class="cv-link" href="{{ $publication.code_url }}" target="_blank" rel="noopener">{{ $labels.code }}</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="cv-project">
+          <a class="cv-project__media" href="{{ $project.code_url }}" target="_blank" rel="noopener" aria-label="{{ $project.title }}">
+            {{ with $poetryVisual }}<img src="{{ .RelPermalink }}" alt="{{ $project.image_alt }}" width="720" height="620" loading="lazy">{{ end }}
+          </a>
+          <div class="cv-project__body">
+            <p class="cv-status">{{ $project.type }}</p>
+            <h3><a class="cv-title-link" href="{{ $project.code_url }}" target="_blank" rel="noopener">{{ $project.title }}</a></h3>
+            <p>{{ $project.summary }}</p>
+            <ul class="cv-project__facts" aria-label="{{ $labels.project_facts }}">
+              {{ range $project.facts }}<li>{{ . }}</li>{{ end }}
+            </ul>
+            <a class="cv-link" href="{{ $project.code_url }}" target="_blank" rel="noopener">{{ $labels.code }}</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="cv-section cv-research" aria-labelledby="research-title">
+    <div class="cv-container cv-section-grid">
+      <header>
+        <p class="cv-eyebrow">{{ $labels.research_kicker }}</p>
+        <h2 id="research-title" class="cv-section-title">{{ $labels.research }}</h2>
+      </header>
+      <div class="cv-research__content">
+        <div class="cv-prose">{{ $content.research_intro | $page.RenderString }}</div>
+        <ul class="cv-tag-list" aria-label="{{ $labels.research_interests }}">
+          {{ range $profile.interests }}<li class="cv-tag">{{ . }}</li>{{ end }}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="cv-section cv-experience" aria-labelledby="experience-title">
+    <div class="cv-container cv-section-grid">
+      <header>
+        <p class="cv-eyebrow">{{ $labels.experience_kicker }}</p>
+        <h2 id="experience-title" class="cv-section-title">{{ $labels.experience }}</h2>
+      </header>
+      <div class="cv-timeline">
+        {{ range $profile.experience }}
+          <article class="cv-timeline-item">
+            <div class="cv-timeline-item__meta">
+              <span>{{ with .start }}{{ . | time.Format $dateFormat }}{{ end }} - {{ with .end }}{{ . | time.Format $dateFormat }}{{ end }}</span>
+              <span>{{ .org }}</span>
+            </div>
+            <div>
+              <h3>{{ .role }}</h3>
+              <div class="cv-prose cv-prose--compact">{{ .summary | $page.RenderString }}</div>
+            </div>
+          </article>
+        {{ end }}
+        {{ range $profile.education }}
+          <article class="cv-timeline-item">
+            <div class="cv-timeline-item__meta">
+              <span>{{ with .start }}{{ . | time.Format $dateFormat }}{{ end }} - {{ with .end }}{{ . | time.Format $dateFormat }}{{ end }}</span>
+              <span>{{ .institution }}</span>
+            </div>
+            <div>
+              <h3>{{ .degree }}</h3>
+              <div class="cv-prose cv-prose--compact">{{ .summary | $page.RenderString }}</div>
+            </div>
+          </article>
+        {{ end }}
+        <article class="cv-timeline-item">
+          <div class="cv-timeline-item__meta"><span>{{ $campus.period }}</span><span>{{ $campus.organization }}</span></div>
+          <div><h3>{{ $campus.title }}</h3><p>{{ $campus.summary }}</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="awards" class="cv-section cv-awards" aria-labelledby="awards-title">
+    <div class="cv-container cv-section-grid">
+      <header>
+        <p class="cv-eyebrow">{{ $labels.awards_kicker }}</p>
+        <h2 id="awards-title" class="cv-section-title">{{ $labels.awards }}</h2>
+      </header>
+      <ol class="cv-award-list">
+        {{ range $profile.awards }}
+          <li>
+            <span class="cv-award-list__year">{{ .date | time.Format "2006" }}</span>
+            <div><h3>{{ .title }}</h3><p>{{ .awarder }}</p></div>
+          </li>
+        {{ end }}
+      </ol>
+    </div>
+  </section>
+
+  <section id="contact" class="cv-section cv-contact" aria-labelledby="contact-title">
+    <div class="cv-container cv-contact__grid">
+      <div>
+        <p class="cv-eyebrow">{{ $labels.contact_kicker }}</p>
+        <h2 id="contact-title" class="cv-section-title">{{ $labels.contact }}</h2>
+      </div>
+      <div>
+        <div class="cv-prose">{{ $content.contact_intro | $page.RenderString }}</div>
+        <div class="cv-actions">
+          <a class="cv-button" href="{{ $actions.email_url }}">{{ $actions.email_label }}</a>
+          <a class="cv-button cv-button--secondary" href="{{ $actions.cv_url | relURL }}" target="_blank" rel="noopener">{{ $actions.cv_label }}</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

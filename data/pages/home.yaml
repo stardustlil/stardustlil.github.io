@@ -1,178 +1,75 @@
 sections:
-  - block: resume-biography-3
-    id: bio
+  - block: academic-home
+    id: homepage
     content:
       username: me
-      text: ''
-      button:
-        text: 下载简历
-        url: uploads/resume.pdf
-      headings:
-        about: '简介'
-        education: ''
-        interests: '研究兴趣'
-    design:
-      background:
-        gradient_mesh:
-          enable: true
-      name:
-        size: md
-      avatar:
-        size: medium
-        shape: circle
-  - block: markdown
-    content:
-      title: '🔬 研究方向'
-      subtitle: ''
-      text: |-
-        我对神经组合优化、深度学习和强化学习充满热情。我的本科毕业论文 GeoRouteNet 探索了针对欧几里得旅行商问题的几何增强神经求解器。
-
-        目前我正在寻求研究助理（RA）职位，希望能够在**组合优化**、**深度学习**、**强化学习**领域做出贡献。
-
-        欢迎联系交流。
-    design:
-      columns: '1'
-  # NOTE: 使用 markdown 卡片代替 collection block。
-  # Hugo v0.163.3 的多语言 bug 导致 collection block 在中文页面上无法查询到中文出版物。
-  # 英文页面使用 collection block 正常，中文页面用下面的 HTML 卡片。
-  - block: markdown
-    id: papers
-    content:
-      title: '📄 论文发表'
-      subtitle: ''
-      text: |-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2" style="max-width:34rem;margin:0 auto">
-        <div class="relative overflow-hidden aspect-[16/9] bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
-        <a href="/zh/publications/georoutenet/">
-        <div class="w-full h-full bg-gradient-to-br from-primary-600/40 via-secondary-600/30 to-primary-800/50 flex items-center justify-center transition-all duration-300 group-hover:from-primary-500/50 group-hover:via-secondary-500/40 group-hover:to-primary-700/60">
-        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-        <svg class="w-8 h-8 text-white/40" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/></svg>
-        </div>
-        </div>
-        </a>
-        </div>
-        <div class="p-8 space-y-4">
-        <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-primary-100 text-primary-800 dark:bg-primary-900/40 dark:text-primary-300">预印本</span>
-        </div>
-        <h3 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors duration-200 leading-tight">
-        <a href="/zh/publications/georoutenet/" class="hover:underline">GeoRouteNet：面向欧几里得 TSP 的几何增强神经求解器</a>
-        </h3>
-        <p class="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed">
-        一种面向欧几里得 TSP 的几何感知非自回归神经求解器，在 TSP50/TSP100 上实现了 0.32%/1.26% 的最优性差距。
-        </p>
-        <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800">
-        <div class="flex items-center gap-3 text-xs text-zinc-500 dark:text-zinc-500 flex-wrap mb-3">
-        <div class="flex items-center gap-2">
-        <img alt="avatar" class="rounded-full object-cover" src="/media/authors/me_hu_89af3f5c76cf5a2f.webp" width="24" height="24" loading="lazy" />
-        <span class="text-sm">李响</span>
-        </div>
-        <span>•</span>
-        <time datetime="2026-06-01">2026年6月1日</time>
-        </div>
-        <div class="flex flex-wrap gap-2">
-        <a href="https://arxiv.org/abs/2606.22776" target="_blank" rel="noopener" class="inline-flex items-center gap-1 rounded-full bg-primary-50 dark:bg-primary-900/20 px-3 py-1 text-xs font-medium text-primary-700 dark:text-primary-300 no-underline hover:bg-primary-100 dark:hover:bg-primary-900/40 transition-colors">arXiv: 2606.22776</a>
-        <a href="https://github.com/stardustlil/GeoRouteNet" target="_blank" rel="noopener" class="inline-flex items-center gap-1 rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400 no-underline hover:bg-zinc-200 dark:hover:bg-zinc-700 transition-colors">代码</a>
-        </div>
-        </div>
-        </div>
-        </div>
-    design:
-      columns: '1'
-  - block: markdown
-    id: campus
-    content:
-      title: '🎓 校园经历'
-      subtitle: ''
-      text: |-
-        加入长江大学 **ICPC（国际大学生程序设计竞赛）集训队**，系统性地进行了算法与数据结构的高强度训练。训练内容涵盖动态规划、图论、计算几何、数论、字符串算法等核心竞赛领域。通过大量刷题训练，培养了扎实的算法思维和高效的问题解决能力。
-    design:
-      columns: '1'
-  - block: markdown
-    id: awards
-    content:
-      title: 🏆 获奖
-      subtitle: ''
-      text: |-
-        <div class="grid gap-4 md:grid-cols-2" style="max-width:42rem;margin:0 auto">
-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-amber-400">
-        <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">全国一等奖（排名 219/2520）—— 码蹄杯程序设计大赛</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">码蹄杯大赛组委会 · 2025年8月</p>
-        </div>
-        </div>
-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-slate-400">
-        <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">全国二等奖 —— RAICOM 机器人开发者大赛 (CAIP 赛道)</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">RAICOM 组委会 · 2025年8月</p>
-        </div>
-        </div>
-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-slate-400">
-        <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">全国二等奖 —— 蓝桥杯程序设计竞赛 (C/C++ 组)</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">工业和信息化部人才交流中心 · 2025年6月</p>
-        </div>
-        </div>
-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
-        <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">省级三等奖 —— 团体程序设计天梯赛 (GPLT)</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">中国高校计算机大赛组委会 · 2025年5月</p>
-        </div>
-        </div>
-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
-        <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">长江大学2026届优秀毕业论文</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">长江大学 · 2026年6月</p>
-        </div>
-        </div>
-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:-translate-y-1 border-l-4 border-l-primary-400">
-        <div class="p-5">
-        <h4 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">89/100  —— 计算机程序设计能力考试 (PAT 甲级)</h4>
-        <p class="text-sm text-zinc-500 dark:text-zinc-400 mt-1">攀拓计算机能力测评考试中心 · 2025年9月</p>
-        </div>
-        </div>
-
-        </div>
-    design:
-      columns: '1'
-  - block: markdown
-    id: projects
-    content:
-      title: '💻 项目经历'
-      subtitle: ''
-      text: |-
-        <div class="group bg-white/90 dark:bg-zinc-900/90 backdrop-blur-sm rounded-2xl ring-1 ring-zinc-900/5 dark:ring-white/10 shadow-lg overflow-hidden transition-all duration-300 ease-out hover:shadow-xl hover:shadow-primary-500/10 hover:-translate-y-2" style="max-width:34rem;margin:0 auto">
-        <div class="relative overflow-hidden aspect-[16/9] bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900">
-        <a href="https://github.com/stardustlil/poetryGPT" target="_blank" rel="noopener">
-        <div class="w-full h-full bg-gradient-to-br from-emerald-600/40 via-teal-600/30 to-cyan-800/50 flex items-center justify-center transition-all duration-300 group-hover:from-emerald-500/50 group-hover:via-teal-500/40 group-hover:to-cyan-700/60">
-        <div class="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-        <svg class="w-8 h-8 text-white/40" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"/></svg>
-        </div>
-        </div>
-        </a>
-        </div>
-        <div class="p-8 space-y-4">
-        <div class="flex items-center gap-2">
-        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">独立项目</span>
-        </div>
-        <h3 class="text-xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors duration-200 leading-tight">
-        <a href="https://github.com/stardustlil/poetryGPT" target="_blank" rel="noopener" class="hover:underline">poetryGPT：面向中文古诗生成的 Decoder-only Transformer</a>
-        </h3>
-        <p class="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed">
-        基于 PyTorch 构建了 7 层 Decoder-only Transformer（约 14M 参数）用于中文古诗生成。开发了覆盖 220 万中文字符的字符级预处理流水线，并实现了 temperature、top-k、nucleus 采样策略用于自回归解码。
-        </p>
-        <div class="pt-3 border-t border-zinc-100 dark:border-zinc-800">
-        <div class="flex flex-wrap gap-2">
-        <a href="https://github.com/stardustlil/poetryGPT" target="_blank" rel="noopener" class="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1 text-xs font-medium text-emerald-700 dark:text-emerald-300 no-underline hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors">GitHub</a>
-        </div>
-        </div>
-        </div>
-        </div>
-    design:
-      columns: '1'
+      location: 中国荆州
+      eyebrow: 神经组合优化
+      role: 关注几何深度学习与强化学习的青年研究者。
+      role_short: 神经优化研究者。
+      intro: |-
+        我致力于研究面向困难组合问题的学习方法。本科毕业论文 **GeoRouteNet** 探索了如何利用显式几何结构改进欧几里得旅行商问题的神经求解器。
+      intro_short: 我研究面向困难组合问题的几何增强神经求解方法。
+      availability: 正在寻求研究助理职位，也欢迎科研合作与交流。
+      availability_short: 正在寻找研究助理机会。
+      research_intro: |-
+        我目前关注一个实际问题：神经模型如何在不牺牲可靠搜索能力的前提下，学习有效的优化结构。具体兴趣包括保留几何信息的表示方法、提供更强训练信号的强化学习目标，以及模型在训练分布之外的泛化能力。
+      contact_intro: |-
+        我正在寻找神经组合优化、深度学习和强化学习方向的研究助理机会。如需讨论研究问题或合作，欢迎通过邮件联系。
+      date_format: 2006年1月
+      actions:
+        cv_label: 下载简历
+        cv_short: 简历
+        cv_url: uploads/resume.pdf
+        email_label: 邮件联系
+        email_short: 邮件
+        email_url: mailto:lixiang.stu@yangtzeu.edu.cn
+        github_label: GitHub 主页
+        github_url: https://github.com/stardustlil
+      labels:
+        primary_actions: 主要操作
+        selected_work_kicker: 以成果为先
+        selected_work: 代表成果
+        selected_work_intro: 用真实结果与项目内容呈现研究和工程工作。
+        paper: 阅读论文
+        code: 查看代码
+        project_facts: 项目信息
+        research_kicker: 研究议题
+        research: 研究方向
+        research_interests: 研究兴趣
+        experience_kicker: 经历背景
+        experience: 科研与教育经历
+        awards_kicker: 竞赛与认可
+        awards: 代表荣誉
+        contact_kicker: 保持联系
+        contact: 欢迎讨论研究与合作。
+      publication:
+        type: 代表预印本
+        title: GeoRouteNet：面向欧几里得 TSP 的几何增强神经求解器
+        summary: 将几何归纳偏置注入节点、边与注意力表示，并采用多候选自比较强化学习训练的非自回归神经求解器。
+        page_url: publications/georoutenet/
+        paper_url: https://arxiv.org/abs/2606.22776
+        code_url: https://github.com/stardustlil/GeoRouteNet
+        image_alt: 带有 GeoRouteNet 实验结果标注的旅行商问题路线图
+        results:
+          - label: TSP50 差距
+            value: 0.32%
+          - label: TSP100 差距
+            value: 1.26%
+          - label: TSPLIB 差距
+            value: 3.60%
+      project:
+        type: 独立项目
+        title: poetryGPT：面向中文古诗生成的 Decoder-only Transformer
+        summary: 使用 PyTorch 构建的字符级语言模型，覆盖数据清洗、Transformer 训练以及面向古诗词的可控自回归解码。
+        code_url: https://github.com/stardustlil/poetryGPT
+        image_alt: poetryGPT 生成的中文古诗排版样例
+        facts:
+          - 7 层 Transformer
+          - 约 1400 万参数
+          - 220 万字符训练语料
+      campus:
+        period: 2022 - 2026
+        organization: 长江大学 ICPC 集训队
+        title: 程序设计竞赛训练
+        summary: 系统训练动态规划、图论、计算几何、数论与字符串算法，强化算法建模和问题求解能力。

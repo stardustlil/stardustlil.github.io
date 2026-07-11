@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 620" role="img" aria-labelledby="title desc">
+  <title id="title">poetryGPT generated poem sample</title>
+  <desc id="desc">A typeset generated Chinese poem with model metadata.</desc>
+  <rect width="720" height="620" fill="#edf1ec"/>
+  <rect x="58" y="52" width="604" height="516" fill="#ffffff" stroke="#ccd4ce" stroke-width="2"/>
+  <path d="M112 113H608" stroke="#a24c32" stroke-width="3"/>
+  <g font-family="Noto Sans SC, Microsoft YaHei, sans-serif" fill="#17221e">
+    <text x="112" y="96" font-size="15" font-weight="700" letter-spacing="2">POETRYGPT / GENERATED SAMPLE</text>
+    <text x="112" y="160" font-size="17" fill="#73807b">词牌：临江仙</text>
+    <text x="112" y="224" font-size="29" font-family="Noto Serif SC, SimSun, serif">万顷蒲萄新酿酒，</text>
+    <text x="112" y="274" font-size="29" font-family="Noto Serif SC, SimSun, serif">半醺白雪香浮。</text>
+    <text x="112" y="324" font-size="29" font-family="Noto Serif SC, SimSun, serif">清风吹破玉为钩。</text>
+    <text x="112" y="374" font-size="29" font-family="Noto Serif SC, SimSun, serif">天教与老伴人游。</text>
+    <text x="112" y="452" font-size="16" fill="#4b5a54">7-layer decoder-only Transformer</text>
+    <text x="112" y="482" font-size="16" fill="#4b5a54">14M parameters / 2.2M training characters</text>
+    <text x="112" y="526" font-size="13" font-weight="700" fill="#176b5b" letter-spacing="1">TOP-K + NUCLEUS SAMPLING</text>
+  </g>
+</svg>
