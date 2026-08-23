@@ -1,16 +1,16 @@
 # Navigation Links
 # English menu
 main:
-  - name: Bio
-    url: /
-    weight: 10
-    language: en
-  - name: Work
-    url: /#work
-    weight: 20
-    language: en
   - name: Research
     url: /#research
+    weight: 10
+    language: en
+  - name: Publications
+    url: /#publications
+    weight: 20
+    language: en
+  - name: Projects
+    url: /#projects
     weight: 30
     language: en
   - name: Experience
@@ -21,19 +21,23 @@ main:
     url: /#awards
     weight: 50
     language: en
+  - name: Contact
+    url: /#contact
+    weight: 60
+    language: en
 
 # Chinese menu
 zh_main:
-  - name: 简介
-    url: /
-    weight: 10
-    language: zh
-  - name: 成果
-    url: /#work
-    weight: 20
-    language: zh
   - name: 研究
     url: /#research
+    weight: 10
+    language: zh
+  - name: 论文
+    url: /#publications
+    weight: 20
+    language: zh
+  - name: 项目
+    url: /#projects
     weight: 30
     language: zh
   - name: 经历
@@ -43,4 +47,8 @@ zh_main:
   - name: 荣誉
     url: /#awards
     weight: 50
+    language: zh
+  - name: 联系
+    url: /#contact
+    weight: 60
     language: zh

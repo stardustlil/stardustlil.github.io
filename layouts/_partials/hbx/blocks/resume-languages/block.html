@@ -1,0 +1,17 @@
+{{/* Local clean override of the resume-languages block (cv design system). */}}
+{{ $block := .wcBlock }}
+{{ $content := $block.content | default dict }}
+{{ $profile := partial "functions/get_author_profile" ($content.username | default "me") }}
+
+{{ with $profile.languages }}
+<section class="cv-section" aria-label="{{ $content.title | default (i18n "languages") }}">
+  <div class="cv-container">
+    <h2 class="cv-section-title cv-resume-heading">{{ $content.title | default (i18n "languages") }}</h2>
+    <ul class="cv-tag-list">
+      {{ range . }}
+        <li class="cv-tag">{{ .name }}{{ with .label }} · {{ . }}{{ end }}</li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+{{ end }}

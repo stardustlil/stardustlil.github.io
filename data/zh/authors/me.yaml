@@ -35,7 +35,6 @@ interests:
 education:
   - degree: 软件工程 工学学士 (B.Eng. in Software Engineering)
     institution: 长江大学
-    location: 中国荆州
     start: 2022-09-01
     end: 2026-06-30
     summary: |
@@ -93,7 +92,7 @@ languages:
     label: CET-6
 
 awards:
-  - title: 全国一等奖（排名 219/2520）—— 码蹄杯程序设计大赛
+  - title: 全国一等奖 —— 码蹄杯程序设计大赛
     awarder: 码蹄杯大赛组委会
     date: "2025-08-01"
   - title: 全国二等奖 —— RAICOM 机器人开发者大赛 (CAIP 赛道)

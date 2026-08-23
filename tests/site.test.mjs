@@ -7,7 +7,7 @@ const pages = {
   zh: await readFile(new URL('../public/zh/index.html', import.meta.url), 'utf8'),
 };
 
-const sectionIds = ['about', 'work', 'research', 'experience', 'awards', 'contact'];
+const sectionIds = ['about', 'news', 'research', 'publications', 'projects', 'experience', 'awards', 'contact'];
 
 for (const [language, html] of Object.entries(pages)) {
   test(`${language} homepage uses the shared editorial structure`, () => {
@@ -31,23 +31,37 @@ for (const [language, html] of Object.entries(pages)) {
     assert.match(html, /mailto:lixiang\.stu@yangtzeu\.edu\.cn/);
   });
 
-  test(`${language} homepage removes template-demo decoration`, () => {
+  test(`${language} homepage links to the full publication list`, () => {
+    assert.match(html, /cv-view-all/);
+  });
+
+  test(`${language} homepage removes template-demo decoration and third-party widgets`, () => {
     assert.doesNotMatch(html, /<option[^>]*>Theme<\/option>/);
     assert.doesNotMatch(html, /[🔬📄🎓🏆💻]/u);
+    assert.doesNotMatch(html, /buttons\.github\.io/);
+  });
+
+  test(`${language} navigation is accessible`, () => {
+    assert.match(html, /class=nav-toggle[^>]*aria-expanded="?false/);
+    assert.match(html, /aria-controls="?site-nav-links/);
   });
 }
 
 test('localized homepages render the same shared section count', () => {
-  const countSections = (html) => [...html.matchAll(/<section\b[^>]*class="([^"]+)"/g)]
-    .filter(([, classes]) => classes.split(/\s+/).includes('cv-section')).length;
+  const countSections = (html) => [...html.matchAll(/<section\b[^>]*?class=(?:"([^"]+)"|([^\s>]+))/g)]
+    .filter(([, quoted, bare]) => (quoted || bare || '').split(/\s+/).includes('cv-section')).length;
   assert.equal(countSections(pages.en), countSections(pages.zh));
   assert.equal(countSections(pages.en), sectionIds.length);
 });
 
 test('each homepage keeps its localized content', () => {
-  assert.match(pages.en, />Selected Work<\/h2>/);
+  assert.match(pages.en, />Selected Publications<\/h2>/);
   assert.match(pages.en, />Download CV<\/span>/);
-  assert.match(pages.zh, />代表成果<\/h2>/);
+  assert.match(pages.zh, />代表论文<\/h2>/);
   assert.match(pages.zh, />下载简历<\/span>/);
   assert.match(pages.zh, /href=\/zh\/publications\/georoutenet\//);
+});
+
+test('site serves a custom favicon', () => {
+  assert.match(pages.en, /rel=("|)icon\1 type=("|)image\/svg\+xml\2 href=\/media\/icon/);
 });

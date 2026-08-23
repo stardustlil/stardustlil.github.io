@@ -3,48 +3,60 @@ sections:
     id: homepage
     content:
       username: me
-      location: 中国荆州
       eyebrow: 神经组合优化
       role: 关注几何深度学习与强化学习的青年研究者。
-      role_short: 神经优化研究者。
       intro: |-
         我致力于研究面向困难组合问题的学习方法。本科毕业论文 **GeoRouteNet** 探索了如何利用显式几何结构改进欧几里得旅行商问题的神经求解器。
-      intro_short: 我研究面向困难组合问题的几何增强神经求解方法。
       availability: 正在寻求研究助理职位，也欢迎科研合作与交流。
-      availability_short: 正在寻找研究助理机会。
       research_intro: |-
         我目前关注一个实际问题：神经模型如何在不牺牲可靠搜索能力的前提下，学习有效的优化结构。具体兴趣包括保留几何信息的表示方法、提供更强训练信号的强化学习目标，以及模型在训练分布之外的泛化能力。
       contact_intro: |-
         我正在寻找神经组合优化、深度学习和强化学习方向的研究助理机会。如需讨论研究问题或合作，欢迎通过邮件联系。
       date_format: 2006年1月
+      news_date_format: "2006年1月"
       actions:
         cv_label: 下载简历
-        cv_short: 简历
         cv_url: uploads/resume.pdf
         email_label: 邮件联系
-        email_short: 邮件
         email_url: mailto:lixiang.stu@yangtzeu.edu.cn
         github_label: GitHub 主页
         github_url: https://github.com/stardustlil
+      news:
+        - date: "2026-06-01"
+          text: GeoRouteNet 预印本已在 arXiv 上线。
+          link: https://arxiv.org/abs/2606.22776
+          link_label: arXiv:2606.22776
+        - date: "2026-06-01"
+          text: GeoRouteNet 获评长江大学校级优秀毕业论文。
+        - date: "2025-08-01"
+          text: 获码蹄杯程序设计大赛全国一等奖。
       labels:
         primary_actions: 主要操作
-        selected_work_kicker: 以成果为先
-        selected_work: 代表成果
-        selected_work_intro: 用真实结果与项目内容呈现研究和工程工作。
-        paper: 阅读论文
-        code: 查看代码
+        news_kicker: 近况
+        news: 最新动态
+        publications_kicker: 论文发表
+        publications: 代表论文
+        publications_intro: 以结果为先的预印本与发表论文。
+        view_all_publications: 查看全部论文
+        paper: 论文
+        code: 代码
         project_facts: 项目信息
+        projects_kicker: 项目
+        projects: 项目
         research_kicker: 研究议题
-        research: 研究方向
-        research_interests: 研究兴趣
+        research: 研究兴趣
+        research_interests: 关键词
         experience_kicker: 经历背景
         experience: 科研与教育经历
         awards_kicker: 竞赛与认可
-        awards: 代表荣誉
+        awards: 荣誉奖项
         contact_kicker: 保持联系
-        contact: 欢迎讨论研究与合作。
+        contact: 联系方式
       publication:
-        type: 代表预印本
+        type: 预印本
+        venue: arXiv 预印本
+        year: "2026"
+        authors: 李响
         title: GeoRouteNet：面向欧几里得 TSP 的几何增强神经求解器
         summary: 将几何归纳偏置注入节点、边与注意力表示，并采用多候选自比较强化学习训练的非自回归神经求解器。
         page_url: publications/georoutenet/

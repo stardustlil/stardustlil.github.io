@@ -40,7 +40,6 @@ interests:
 education:
   - degree: B.Eng. Software Engineering
     institution: Yangtze University
-    location: Jingzhou, China
     start: 2022-09-01
     end: 2026-06-30
     summary: |
@@ -101,7 +100,7 @@ languages:
     label: CET-6
 
 awards:
-  - title: National First Prize (Rank 219/2520) — Mati Cup
+  - title: National First Prize — Mati Cup
     awarder: Mati Cup Organizing Committee
     date: "2025-08-01"
   - title: National Second Prize — RAICOM Robot Developer Competition (CAIP Track)

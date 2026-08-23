@@ -1,0 +1,20 @@
+{{/* Local clean override of the resume-awards block (cv design system). */}}
+{{ $block := .wcBlock }}
+{{ $content := $block.content | default dict }}
+{{ $profile := partial "functions/get_author_profile" ($content.username | default "me") }}
+
+{{ with $profile.awards }}
+<section class="cv-section cv-band" aria-label="{{ $content.title | default (i18n "awards") }}">
+  <div class="cv-container">
+    <h2 class="cv-section-title cv-resume-heading">{{ $content.title | default (i18n "awards") }}</h2>
+    <ol class="cv-award-list">
+      {{ range . }}
+        <li>
+          <span class="cv-award-list__year">{{ .date | time.Format "2006" }}</span>
+          <div><h3>{{ .title }}</h3>{{ with .awarder }}<p>{{ . }}</p>{{ end }}</div>
+        </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
+{{ end }}

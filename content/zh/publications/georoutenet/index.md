@@ -1,5 +1,6 @@
 ---
 title: "GeoRouteNet：面向欧几里得 TSP 的几何增强神经求解器"
+type: publications
 authors:
 - me
 date: "2026-06-01T00:00:00Z"

@@ -1,0 +1,43 @@
+{{/* Local clean override of the resume-experience block (cv design system). */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content | default dict }}
+{{ $design := $block.design | default dict }}
+{{ $profile := partial "functions/get_author_profile" ($content.username | default "me") }}
+{{ $dateFormat := $design.date_format | default "Jan 2006" }}
+
+{{ $groups := slice
+  (dict "title" (i18n "experience" | default "Experience") "items" $profile.experience)
+  (dict "title" (i18n "education" | default "Education") "items" $profile.education)
+}}
+{{ if $design.is_education_first }}{{ $groups = collections.Reverse $groups }}{{ end }}
+
+<section class="cv-section cv-band" aria-label="{{ $content.title | default (i18n "experience") }}">
+  <div class="cv-container">
+    {{ range $groups }}
+      {{ $group := . }}
+      {{ with .items }}
+        <h2 class="cv-section-title cv-resume-heading">{{ $group.title }}</h2>
+        <div class="cv-timeline">
+          {{ range . }}
+            <article class="cv-timeline-item">
+              <div class="cv-timeline-item__meta">
+                <span>{{ with .start }}{{ . | time.Format $dateFormat }}{{ end }}{{ if .end }} – {{ .end | time.Format $dateFormat }}{{ end }}</span>
+                <span>{{ .org | default .institution }}</span>
+              </div>
+              <div>
+                <h3>{{ .role | default .degree }}</h3>
+                {{ with .summary }}<div class="cv-prose cv-prose--compact">{{ . | $page.RenderString }}</div>{{ end }}
+                {{ with .button }}
+                  <div class="cv-actions">
+                    <a class="cv-button cv-button--secondary" href="{{ .url | relURL }}" target="_blank" rel="noopener">{{ .text }}</a>
+                  </div>
+                {{ end }}
+              </div>
+            </article>
+          {{ end }}
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</section>

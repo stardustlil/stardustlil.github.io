@@ -1,0 +1,54 @@
+{{ define "main" }}
+{{ $isZh := hasPrefix .RelPermalink "/zh/" }}
+{{ $t := dict
+  "back" (cond $isZh "返回论文列表" "Back to publications")
+  "abstract" (cond $isZh "摘要" "Abstract")
+  "paper" (cond $isZh "论文" "Paper")
+  "code" (cond $isZh "代码" "Code")
+  "published" (cond $isZh "发布于" "Published")
+}}
+
+{{ $pub_type := "" }}
+{{ with .Params.publication_types }}
+  {{ $pub_type = i18n (printf "pub_%s" (index . 0)) | default (humanize (index . 0)) }}
+{{ end }}
+
+{{ $authors := slice }}
+{{ range .Params.authors }}
+  {{ $p := partial "functions/get_author_profile" . }}
+  {{ $authors = $authors | append $p.title }}
+{{ end }}
+
+<main class="cv-paper">
+  <a class="cv-link cv-paper__back" href="{{ "publications/" | relLangURL }}"><span aria-hidden="true">← </span>{{ $t.back }}</a>
+
+  <div class="cv-pub__badges">
+    {{ with $pub_type }}<span class="cv-badge">{{ . }}</span>{{ end }}
+    {{ with .Params.date }}<span class="cv-badge cv-badge--muted">{{ time.Format "2006" . }}</span>{{ end }}
+  </div>
+
+  <h1 class="cv-paper__title">{{ .Title }}</h1>
+  <p class="cv-paper__authors">{{ delimit $authors ", " }}</p>
+  {{ with .Params.date }}<p class="cv-paper__meta">{{ $t.published }} {{ time.Format "Jan 2, 2006" . }}</p>{{ end }}
+
+  <div class="cv-paper__actions">
+    {{ with .Params.hugoblox.ids.arxiv }}
+      <a class="cv-button" href="https://arxiv.org/abs/{{ . }}" target="_blank" rel="noopener">{{ $t.paper }} · arXiv</a>
+    {{ end }}
+    {{ range .Params.links }}
+      {{ if eq .type "code" }}
+        <a class="cv-button cv-button--secondary" href="{{ .url }}" target="_blank" rel="noopener">{{ $t.code }}</a>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  {{ with .Params.abstract }}
+    <h2 class="cv-paper__abstract-title">{{ $t.abstract }}</h2>
+    <div class="cv-paper__abstract">{{ . | $.Page.RenderString }}</div>
+  {{ end }}
+
+  {{ with .Content }}
+    <div class="cv-paper__content cv-prose">{{ . }}</div>
+  {{ end }}
+</main>
+{{ end }}
