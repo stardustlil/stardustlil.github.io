@@ -43,6 +43,8 @@ sections:
         project_facts: Project facts
         projects_kicker: Projects
         projects: Projects
+        more_projects: More open-source work
+        view_all_projects: View all on GitHub
         research_kicker: Research agenda
         research: Research Interests
         research_interests: Keywords
@@ -80,6 +82,66 @@ sections:
           - 7 transformer layers
           - Approximately 14M parameters
           - 2.2M-character training corpus
+      portfolio_url: https://github.com/stardustlil?tab=repositories
+      projects:
+        - name: GeoRouteNet
+          type: Research code
+          language: Python
+          summary: Official implementation of the GeoRouteNet paper, with training, evaluation, and decoding code for the geometry-enhanced neural solver.
+          url: https://github.com/stardustlil/GeoRouteNet
+          tags:
+            - Neural combinatorial optimization
+            - Reinforcement learning
+        - name: 408-local-judge
+          type: Full-stack app
+          language: Python
+          summary: A local online judge for 408 data-structure practice, with sandboxed per-testcase judging in Docker, Markdown/KaTeX problem statements, and submission history.
+          url: https://github.com/stardustlil/408-local-judge
+          tags:
+            - FastAPI
+            - React
+            - Docker
+        - name: errorbook-mcp
+          type: MCP server
+          language: Python
+          summary: A local-first MCP server for error notebooks — structured problem recording, FSRS review scheduling, priority management, and printable math PDFs.
+          url: https://github.com/stardustlil/errorbook-mcp
+          tags:
+            - MCP
+            - FSRS
+            - SQLite
+        - name: tsp_benchmark
+          type: Research framework
+          language: Python
+          summary: A plugin-based training and benchmarking framework with swappable models and training strategies, a unified entry point, and a fixed validation set for fair TSP solver comparison.
+          url: https://github.com/stardustlil/tsp_benchmark
+          tags:
+            - Benchmark
+            - Reinforcement learning
+        - name: Actor_Critic
+          type: Reinforcement learning
+          language: Python
+          summary: An Actor-Critic framework for discrete action spaces supporting A2C and QAC, built on a unified agent interface and a registry-based algorithm factory.
+          url: https://github.com/stardustlil/Actor_Critic
+          tags:
+            - A2C
+            - QAC
+        - name: flappy_bird_REINFORCE
+          type: Reinforcement learning
+          language: Python
+          summary: A complete implementation of training a Flappy Bird agent with REINFORCE, including a baseline variant.
+          url: https://github.com/stardustlil/flappy_bird_REINFORCE
+          tags:
+            - REINFORCE
+            - Policy gradient
+        - name: algorithm-templates
+          type: Notes & templates
+          language: C++
+          summary: A competitive-programming template and notes library covering core ideas, derivations, and reusable templates across data structures, DP, graph theory, math, and strings.
+          url: https://github.com/stardustlil/algorithm-templates
+          tags:
+            - Competitive programming
+            - Data structures
       campus:
         period: 2022 - 2026
         organization: Yangtze University ICPC Team

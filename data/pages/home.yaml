@@ -43,6 +43,8 @@ sections:
         project_facts: 项目信息
         projects_kicker: 项目
         projects: 项目
+        more_projects: 更多开源项目
+        view_all_projects: 在 GitHub 查看全部
         research_kicker: 研究议题
         research: 研究兴趣
         research_interests: 关键词
@@ -80,6 +82,66 @@ sections:
           - 7 层 Transformer
           - 约 1400 万参数
           - 220 万字符训练语料
+      portfolio_url: https://github.com/stardustlil?tab=repositories
+      projects:
+        - name: GeoRouteNet
+          type: 研究代码
+          language: Python
+          summary: GeoRouteNet 论文的官方实现，包含几何增强神经求解器的训练、评测与解码代码。
+          url: https://github.com/stardustlil/GeoRouteNet
+          tags:
+            - 神经组合优化
+            - 强化学习
+        - name: 408-local-judge
+          type: 全栈应用
+          language: Python
+          summary: 面向 408 数据结构刷题的本地 Online Judge，使用 Docker 一次性沙箱逐测试点判题，支持 Markdown/KaTeX 题面与提交历史。
+          url: https://github.com/stardustlil/408-local-judge
+          tags:
+            - FastAPI
+            - React
+            - Docker
+        - name: errorbook-mcp
+          type: MCP 服务
+          language: Python
+          summary: 本地优先的错题本 MCP 服务器，为 agent 提供结构化录题、FSRS 复习调度与优先级维护，并导出带数学公式的打印版 PDF。
+          url: https://github.com/stardustlil/errorbook-mcp
+          tags:
+            - MCP
+            - FSRS
+            - SQLite
+        - name: tsp_benchmark
+          type: 实验框架
+          language: Python
+          summary: 插件化训练与基准框架，模型与训练策略均可插拔，统一训练入口与固定验证集，用于公平对比 TSP 神经求解器。
+          url: https://github.com/stardustlil/tsp_benchmark
+          tags:
+            - Benchmark
+            - 强化学习
+        - name: Actor_Critic
+          type: 强化学习
+          language: Python
+          summary: 面向离散动作空间的 Actor-Critic 实验框架，支持 A2C 与 QAC，采用统一 Agent 接口与注册式算法工厂。
+          url: https://github.com/stardustlil/Actor_Critic
+          tags:
+            - A2C
+            - QAC
+        - name: flappy_bird_REINFORCE
+          type: 强化学习
+          language: Python
+          summary: 使用 REINFORCE 算法（含 baseline 变体）训练 Flappy Bird 智能体的完整实现。
+          url: https://github.com/stardustlil/flappy_bird_REINFORCE
+          tags:
+            - REINFORCE
+            - 策略梯度
+        - name: algorithm-templates
+          type: 算法笔记
+          language: C++
+          summary: 算法竞赛与面试模板库，覆盖数据结构、动态规划、图论、数论与字符串的核心思路、推导和可复用模板。
+          url: https://github.com/stardustlil/algorithm-templates
+          tags:
+            - 算法竞赛
+            - 数据结构
       campus:
         period: 2022 - 2026
         organization: 长江大学 ICPC 集训队

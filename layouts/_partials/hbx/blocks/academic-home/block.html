@@ -137,6 +137,9 @@
           <p class="cv-eyebrow">{{ $labels.projects_kicker }}</p>
           <h2 id="projects-title" class="cv-section-title">{{ $labels.projects }}</h2>
         </div>
+        {{ with $content.portfolio_url }}
+        <a class="cv-link cv-view-all" href="{{ . }}" target="_blank" rel="noopener">{{ $labels.view_all_projects }}<span aria-hidden="true"> →</span></a>
+        {{ end }}
       </header>
 
       <article class="cv-project">
@@ -155,6 +158,25 @@
           </div>
         </div>
       </article>
+
+      {{ with $content.projects }}
+      <h3 class="cv-portfolio__heading">{{ $labels.more_projects }}</h3>
+      <ul class="cv-portfolio" role="list">
+        {{ range . }}
+        <li class="cv-portfolio__card">
+          <div class="cv-portfolio__top">
+            <h4 class="cv-portfolio__name"><a class="cv-title-link" href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></h4>
+            <span class="cv-portfolio__lang">{{ .language }}</span>
+          </div>
+          <p class="cv-portfolio__type">{{ .type }}</p>
+          <p class="cv-portfolio__summary">{{ .summary }}</p>
+          <ul class="cv-portfolio__tags" aria-label="{{ .name }}">
+            {{ range .tags }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </li>
+        {{ end }}
+      </ul>
+      {{ end }}
     </div>
   </section>
 

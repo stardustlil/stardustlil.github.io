@@ -830,6 +830,115 @@ select:focus-visible,
   padding: 5px 11px;
 }
 
+/* ---------- Portfolio grid ---------- */
+
+.cv-portfolio__heading {
+  margin: 44px 0 0;
+  color: var(--cv-text-tertiary);
+  font-family: var(--cv-font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.cv-portfolio {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-portfolio__card {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  padding: 22px 24px;
+  border: 1px solid var(--cv-border);
+  border-radius: 10px;
+  background: var(--cv-surface);
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+
+.cv-portfolio__card:hover {
+  border-color: var(--cv-border-strong);
+  box-shadow: var(--cv-shadow);
+  transform: translateY(-2px);
+}
+
+.cv-portfolio__top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cv-portfolio__name {
+  min-width: 0;
+  margin: 0;
+  font-family: var(--cv-font-mono);
+  font-size: 15.5px;
+  font-weight: 600;
+  overflow-wrap: break-word;
+}
+
+.cv-portfolio__lang {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 7px;
+  color: var(--cv-text-tertiary);
+  font-family: var(--cv-font-mono);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.cv-portfolio__lang::before {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--cv-accent);
+  content: '';
+}
+
+.cv-portfolio__type {
+  margin: 5px 0 0;
+  color: var(--cv-accent);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cv-portfolio__summary {
+  flex: 1;
+  margin: 10px 0 0;
+  color: var(--cv-text-secondary);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.cv-portfolio__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cv-portfolio__tags li {
+  border: 1px solid var(--cv-border);
+  border-radius: 999px;
+  padding: 2px 10px;
+  color: var(--cv-text-tertiary);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
 /* ---------- Timeline (experience / education) ---------- */
 
 .cv-timeline {
@@ -1294,6 +1403,14 @@ select:focus-visible,
 
   .cv-project .cv-project__media {
     order: 0;
+  }
+
+  .cv-portfolio {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cv-portfolio__card {
+    padding: 18px 20px;
   }
 
   .cv-news-list li {

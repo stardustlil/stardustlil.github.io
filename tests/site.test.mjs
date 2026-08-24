@@ -35,6 +35,14 @@ for (const [language, html] of Object.entries(pages)) {
     assert.match(html, /cv-view-all/);
   });
 
+  test(`${language} homepage portfolio lists every GitHub project`, () => {
+    const repos = ['GeoRouteNet', '408-local-judge', 'errorbook-mcp', 'tsp_benchmark', 'Actor_Critic', 'flappy_bird_REINFORCE', 'algorithm-templates'];
+    for (const repo of repos) {
+      assert.match(html, new RegExp(`github\\.com/stardustlil/${repo}`), `${repo} must be linked`);
+    }
+    assert.match(html, /github\.com\/stardustlil\?tab=repositories/);
+  });
+
   test(`${language} homepage removes template-demo decoration and third-party widgets`, () => {
     assert.doesNotMatch(html, /<option[^>]*>Theme<\/option>/);
     assert.doesNotMatch(html, /[🔬📄🎓🏆💻]/u);
