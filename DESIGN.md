@@ -1,6 +1,6 @@
 # DESIGN.md
 
-> Present Li Xiang's research as a precise, readable academic record with the calm authority of a well-edited journal.
+> Present Xiang Li's research as a precise, readable academic record with the calm authority of a well-edited journal.
 
 ## 1. Visual Theme & Atmosphere
 

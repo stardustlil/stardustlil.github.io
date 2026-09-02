@@ -2,7 +2,7 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: Li Xiang
+  display: Xiang Li
   given: Xiang
   family: Li
   alternate: ''  # Example: 王伟

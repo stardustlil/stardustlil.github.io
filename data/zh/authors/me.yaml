@@ -2,10 +2,10 @@ schema: hugoblox/author/v1
 slug: me
 is_owner: true
 name:
-  display: 李响 (Li Xiang)
+  display: 李响
   given: 响
   family: 李
-  alternate: 'Li Xiang'
+  alternate: ''
   pronunciation: ''
   pronouns: he/him
 postnominals: []

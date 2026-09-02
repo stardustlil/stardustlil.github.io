@@ -58,7 +58,7 @@ sections:
         type: Preprint
         venue: arXiv preprint
         year: "2026"
-        authors: Li Xiang
+        authors: Xiang Li
         title: 'GeoRouteNet: Geometry-Enhanced Neural Solver for Euclidean TSP'
         summary: A non-autoregressive neural solver that injects geometric inductive bias into node, edge, and attention representations, trained with multi-candidate self-comparison reinforcement learning.
         page_url: publications/georoutenet/
