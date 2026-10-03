@@ -1,0 +1,140 @@
+---
+import '@fontsource-variable/instrument-sans/wdth.css';
+import '../styles/global.css';
+import Tour from './Tour.astro';
+import { content, featuredProjects, links, type Lang } from '../content';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = content[Astro.props.lang];
+const { labels } = t;
+const shownProjects = t.projects.slice(0, featuredProjects);
+const moreProjects = t.projects.slice(featuredProjects);
+const year = new Date().getFullYear();
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.name}</title>
+    <meta name="description" content={t.description} />
+    <link rel="canonical" href={Astro.url.href} />
+    <link rel="alternate" hreflang={t.otherLanguage.hreflang} href={new URL(t.otherLanguage.href, Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="page">
+      <nav class="lang">
+        <a href={t.otherLanguage.href} hreflang={t.otherLanguage.hreflang} lang={t.otherLanguage.hreflang}>{t.otherLanguage.label}</a>
+      </nav>
+
+      <header class="hero">
+        <div>
+          <h1>{t.name}</h1>
+          <p class="hero__affiliation">{t.affiliation}</p>
+          <ul class="hero__links">
+            <li><a href={`mailto:${links.email}`}>{links.email}</a></li>
+            <li><a href={links.github}>{labels.github}</a></li>
+            <li><a href={links.cv}>{labels.cv}</a></li>
+          </ul>
+        </div>
+        <div class="hero__figure"><Tour /></div>
+      </header>
+
+      <main>
+        <section id="interests" class="section">
+          <h2>{labels.interests}</h2>
+          <ul class="interests">
+            {t.interests.map((interest) => <li>{interest}</li>)}
+          </ul>
+        </section>
+
+        <section id="publication" class="section">
+          <h2>{labels.publication}</h2>
+          <div>
+            <h3 class="pub__title"><a href={links.paper}>{t.publication.title}</a></h3>
+            <p class="muted">{t.publication.citation}</p>
+            <p>{t.publication.result}</p>
+            <p class="pub__links">
+              <a href={links.paper}>{labels.paper}</a>
+              <a href={links.code}>{labels.code}</a>
+            </p>
+          </div>
+        </section>
+
+        <section id="projects" class="section">
+          <h2>{labels.projects}</h2>
+          <div>
+            <ul class="projects">
+              {
+                shownProjects.map((project) => (
+                  <li>
+                    <a href={`${links.github}/${project.name}`}>{project.name}</a>
+                    <p>{project.text}</p>
+                  </li>
+                ))
+              }
+            </ul>
+            <details class="more">
+              <summary>
+                <span class="more__icon" aria-hidden="true"></span>
+                <span class="more__closed">{labels.showMore(moreProjects.length)}</span>
+                <span class="more__open">{labels.showFewer}</span>
+              </summary>
+              <ul class="projects">
+                {
+                  moreProjects.map((project) => (
+                    <li>
+                      <a href={`${links.github}/${project.name}`}>{project.name}</a>
+                      <p>{project.text}</p>
+                    </li>
+                  ))
+                }
+              </ul>
+              <p class="more__all"><a href={links.repositories}>{labels.allRepositories}</a></p>
+            </details>
+          </div>
+        </section>
+
+        <section id="experience" class="section">
+          <h2>{labels.experience}</h2>
+          <ul class="rows rows--dates">
+            {
+              t.experience.map((item) => (
+                <li>
+                  <span class="rows__key">{item.date}</span>
+                  <span>
+                    {item.text}
+                    {item.note && <span class="rows__note">{item.note}</span>}
+                  </span>
+                </li>
+              ))
+            }
+          </ul>
+        </section>
+
+        <section id="awards" class="section">
+          <h2>{labels.awards}</h2>
+          <ul class="rows rows--years">
+            {
+              t.awards.map((group) =>
+                group.items.map((award, i) => (
+                  <li>
+                    <span class="rows__key">{i === 0 && group.year}</span>
+                    <span>{award}</span>
+                  </li>
+                )),
+              )
+            }
+          </ul>
+        </section>
+      </main>
+
+      <footer class="footer">© {year} {t.name}</footer>
+    </div>
+  </body>
+</html>

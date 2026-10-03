@@ -1,75 +1,59 @@
 import assert from 'node:assert/strict';
-import { readFile } from 'node:fs/promises';
+import { access, readFile } from 'node:fs/promises';
 import test from 'node:test';
 
-const pages = {
-  en: await readFile(new URL('../public/index.html', import.meta.url), 'utf8'),
-  zh: await readFile(new URL('../public/zh/index.html', import.meta.url), 'utf8'),
-};
+const read = (path) => readFile(new URL(`../dist/${path}`, import.meta.url), 'utf8');
+const pages = { en: await read('index.html'), zh: await read('zh/index.html') };
 
-const sectionIds = ['about', 'news', 'research', 'publications', 'projects', 'experience', 'awards', 'contact'];
+const sections = ['interests', 'publication', 'projects', 'experience', 'awards'];
+const repos = ['poetryGPT', 'tsp_benchmark', 'Actor_Critic', 'flappy_bird_REINFORCE', '408-local-judge', 'errorbook-mcp', 'algorithm-templates'];
 
-for (const [language, html] of Object.entries(pages)) {
-  test(`${language} homepage uses the shared editorial structure`, () => {
-    assert.match(html, /class=(?:"[^"]*cv-home[^"]*"|cv-home)/);
-
-    let previousIndex = -1;
-    for (const id of sectionIds) {
-      const index = html.search(new RegExp(`id=(?:"${id}"|${id})(?:[ >])`));
-      assert.ok(index > previousIndex, `${id} must exist after the previous section`);
-      previousIndex = index;
+for (const [lang, html] of Object.entries(pages)) {
+  test(`${lang}: sections appear in order`, () => {
+    let previous = -1;
+    for (const id of sections) {
+      const index = html.indexOf(`id="${id}"`);
+      assert.ok(index > previous, `#${id} missing or out of order`);
+      previous = index;
     }
   });
 
-  test(`${language} homepage exposes real project visuals and primary links`, () => {
-    assert.match(html, /georoutenet-route\.svg/);
-    assert.match(html, /poetrygpt-sample\.svg/);
-    assert.match(html, /arxiv\.org\/abs\/2606\.22776/);
-    assert.match(html, /github\.com\/stardustlil\/GeoRouteNet/);
-    assert.match(html, /github\.com\/stardustlil\/poetryGPT/);
-    assert.match(html, /uploads\/resume\.pdf/);
-    assert.match(html, /mailto:lixiang\.stu@yangtzeu\.edu\.cn/);
+  test(`${lang}: no photo and no removed copy`, () => {
+    assert.doesNotMatch(html, /<img\b/);
+    assert.doesNotMatch(html, /Research Assistant|研究助理|Aspiring|青年研究者|致力于|Feel free/);
   });
 
-  test(`${language} homepage links to the full publication list`, () => {
-    assert.match(html, /cv-view-all/);
+  test(`${lang}: primary links`, () => {
+    assert.match(html, /href="mailto:lixiang\.stu@yangtzeu\.edu\.cn"/);
+    assert.match(html, /href="https:\/\/arxiv\.org\/abs\/2606\.22776"/);
+    assert.match(html, /href="https:\/\/github\.com\/stardustlil\/GeoRouteNet"/);
+    assert.match(html, /href="\/uploads\/resume\.pdf"/);
   });
 
-  test(`${language} homepage portfolio lists every GitHub project`, () => {
-    const repos = ['GeoRouteNet', '408-local-judge', 'errorbook-mcp', 'tsp_benchmark', 'Actor_Critic', 'flappy_bird_REINFORCE', 'algorithm-templates'];
-    for (const repo of repos) {
-      assert.match(html, new RegExp(`github\\.com/stardustlil/${repo}`), `${repo} must be linked`);
-    }
-    assert.match(html, /github\.com\/stardustlil\?tab=repositories/);
+  test(`${lang}: two projects shown, the rest behind the toggle`, () => {
+    const [shown, hidden] = html.split('<details');
+    assert.ok(hidden, 'expand toggle missing');
+    repos.forEach((repo, i) => {
+      const link = `github.com/stardustlil/${repo}"`;
+      assert.ok((i < 2 ? shown : hidden).includes(link), `${repo} in the wrong place`);
+    });
+    assert.match(hidden, /github\.com\/stardustlil\?tab=repositories/);
   });
 
-  test(`${language} homepage removes template-demo decoration and third-party widgets`, () => {
-    assert.doesNotMatch(html, /<option[^>]*>Theme<\/option>/);
-    assert.doesNotMatch(html, /[🔬📄🎓🏆💻]/u);
-    assert.doesNotMatch(html, /buttons\.github\.io/);
-  });
-
-  test(`${language} navigation is accessible`, () => {
-    assert.match(html, /class=nav-toggle[^>]*aria-expanded="?false/);
-    assert.match(html, /aria-controls="?site-nav-links/);
+  test(`${lang}: tour figure rendered`, () => {
+    assert.match(html, /class="tour[^"]*"/);
+    assert.equal(html.match(/<circle\b/g)?.length, 30);
   });
 }
 
-test('localized homepages render the same shared section count', () => {
-  const countSections = (html) => [...html.matchAll(/<section\b[^>]*?class=(?:"([^"]+)"|([^\s>]+))/g)]
-    .filter(([, quoted, bare]) => (quoted || bare || '').split(/\s+/).includes('cv-section')).length;
-  assert.equal(countSections(pages.en), countSections(pages.zh));
-  assert.equal(countSections(pages.en), sectionIds.length);
+test('pages link to each other', () => {
+  assert.match(pages.en, /<html lang="en"/);
+  assert.match(pages.zh, /<html lang="zh-CN"/);
+  assert.match(pages.en, /href="\/zh\/"/);
+  assert.match(pages.zh, /href="\/"/);
 });
 
-test('each homepage keeps its localized content', () => {
-  assert.match(pages.en, />Selected Publications<\/h2>/);
-  assert.match(pages.en, />Download CV<\/span>/);
-  assert.match(pages.zh, />代表论文<\/h2>/);
-  assert.match(pages.zh, />下载简历<\/span>/);
-  assert.match(pages.zh, /href=\/zh\/publications\/georoutenet\//);
-});
-
-test('site serves a custom favicon', () => {
-  assert.match(pages.en, /rel=("|)icon\1 type=("|)image\/svg\+xml\2 href=\/media\/icon/);
+test('CV and favicon are published', async () => {
+  await access(new URL('../dist/uploads/resume.pdf', import.meta.url));
+  await access(new URL('../dist/favicon.svg', import.meta.url));
 });

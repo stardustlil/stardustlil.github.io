@@ -1,0 +1,87 @@
+---
+// Hero figure: a TSP tour over 30 fixed cities, solved at build time with
+// nearest-neighbour construction followed by 2-opt.
+let seed = 2026;
+const rand = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+
+// Rejection sampling keeps cities at least 11 units apart inside [8, 92].
+const cities: [number, number][] = [];
+while (cities.length < 30) {
+  const [x, y] = [8 + rand() * 84, 8 + rand() * 84];
+  if (cities.every(([cx, cy]) => Math.hypot(x - cx, y - cy) >= 11)) cities.push([x, y]);
+}
+const n = cities.length;
+const dist = (a: number, b: number) => Math.hypot(cities[a][0] - cities[b][0], cities[a][1] - cities[b][1]);
+
+const tour = [0];
+const unvisited = new Set(cities.keys());
+unvisited.delete(0);
+while (unvisited.size) {
+  const last = tour[tour.length - 1];
+  const next = [...unvisited].reduce((a, b) => (dist(last, a) < dist(last, b) ? a : b));
+  tour.push(next);
+  unvisited.delete(next);
+}
+
+for (let improved = true; improved; ) {
+  improved = false;
+  for (let i = 0; i < n - 1; i++) {
+    for (let j = i + 2; j < n; j++) {
+      const [a, b, c, d] = [tour[i], tour[i + 1], tour[j], tour[(j + 1) % n]];
+      if (dist(a, c) + dist(b, d) < dist(a, b) + dist(c, d) - 1e-9) {
+        tour.splice(i + 1, j - i, ...tour.slice(i + 1, j + 1).reverse());
+        improved = true;
+      }
+    }
+  }
+}
+
+const path = 'M' + tour.map((i) => cities[i].map((v) => v.toFixed(2)).join(' ')).join(' L') + ' Z';
+---
+
+<svg class="tour" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+  <path class="tour__route" d={path} pathLength="1" />
+  {cities.map(([x, y], i) => <circle class:list={['tour__city', { 'tour__city--start': i === tour[0] }]} cx={x.toFixed(2)} cy={y.toFixed(2)} r="1.5" />)}
+</svg>
+
+<style>
+  .tour {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .tour__route {
+    fill: none;
+    stroke: var(--cobalt);
+    stroke-width: 0.7;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+    animation: draw 1.8s cubic-bezier(0.45, 0, 0.2, 1) 0.15s backwards;
+  }
+
+  .tour__city {
+    fill: var(--paper);
+    stroke: var(--ink);
+    stroke-width: 0.55;
+  }
+
+  .tour__city--start {
+    fill: var(--cobalt);
+    stroke: var(--cobalt);
+  }
+
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .tour__route {
+      animation: none;
+    }
+  }
+</style>
