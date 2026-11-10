@@ -6,7 +6,7 @@ const read = (path) => readFile(new URL(`../dist/${path}`, import.meta.url), 'ut
 const pages = { en: await read('index.html'), zh: await read('zh/index.html') };
 
 const sections = ['interests', 'publication', 'projects', 'experience', 'awards'];
-const repos = ['poetryGPT', 'tsp_benchmark', 'Actor_Critic', 'flappy_bird_REINFORCE', '408-local-judge', 'errorbook-mcp', 'algorithm-templates'];
+const repos = ['poetryGPT', 'tsp_benchmark', '408-local-judge', 'errorbook-mcp'];
 
 for (const [lang, html] of Object.entries(pages)) {
   test(`${lang}: sections appear in order`, () => {
@@ -30,14 +30,10 @@ for (const [lang, html] of Object.entries(pages)) {
     assert.match(html, /href="\/uploads\/resume\.pdf"/);
   });
 
-  test(`${lang}: two projects shown, the rest behind the toggle`, () => {
-    const [shown, hidden] = html.split('<details');
-    assert.ok(hidden, 'expand toggle missing');
-    repos.forEach((repo, i) => {
-      const link = `github.com/stardustlil/${repo}"`;
-      assert.ok((i < 2 ? shown : hidden).includes(link), `${repo} in the wrong place`);
-    });
-    assert.match(hidden, /github\.com\/stardustlil\?tab=repositories/);
+  test(`${lang}: selected projects`, () => {
+    for (const repo of repos) assert.ok(html.includes(`github.com/stardustlil/${repo}"`), `${repo} missing`);
+    assert.equal(html.match(/<li>\s*<a href="https:\/\/github\.com\/stardustlil\/[^"?]+"/g)?.length, repos.length);
+    assert.match(html, /github\.com\/stardustlil\?tab=repositories/);
   });
 
   test(`${lang}: tour figure rendered`, () => {

@@ -4,7 +4,7 @@ Personal homepage of Xiang Li, built with [Astro](https://astro.build) and deplo
 
 - English: `/`, Chinese: `/zh/`
 - All copy lives in `src/content.ts` (one entry per language); both pages render `src/components/Home.astro`.
-- The CV is `public/uploads/resume.pdf`.
+- The CV is `public/uploads/resume.pdf`, exported from `resume/resume.html` with `npm run resume` (needs Google Chrome).
 
 ```bash
 npm install

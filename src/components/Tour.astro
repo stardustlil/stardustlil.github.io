@@ -54,7 +54,7 @@ const path = 'M' + tour.map((i) => cities[i].map((v) => v.toFixed(2)).join(' '))
 
   .tour__route {
     fill: none;
-    stroke: var(--cobalt);
+    stroke: var(--accent);
     stroke-width: 0.7;
     stroke-linejoin: round;
     stroke-dasharray: 1;
@@ -69,8 +69,8 @@ const path = 'M' + tour.map((i) => cities[i].map((v) => v.toFixed(2)).join(' '))
   }
 
   .tour__city--start {
-    fill: var(--cobalt);
-    stroke: var(--cobalt);
+    fill: var(--accent);
+    stroke: var(--accent);
   }
 
   @keyframes draw {
